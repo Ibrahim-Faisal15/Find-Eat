@@ -5,12 +5,12 @@ import Search from "./components/search";
 import { ContextProvider } from "./store/store";
 
 function App() {
-  let [clear, setClear] = useState();
+  let [clicked, setclicked] = useState(false);
   return (
     <>
       <ContextProvider>
-        <Search />
-        <Recipes></Recipes>
+        {!clicked && <Search clicked={setclicked} />}
+        {clicked && <Recipes />}
       </ContextProvider>
     </>
   );

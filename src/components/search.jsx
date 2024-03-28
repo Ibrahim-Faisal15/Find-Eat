@@ -1,13 +1,14 @@
 import { useContext, useRef } from "react";
 import { context } from "../store/store";
 
-export default function Searach() {
+export default function Searach({ clicked }) {
   let value = useRef();
   const { fetchRecepies } = useContext(context);
   const handleRecepieData = (e) => {
     let currVal = value.current.value;
     e.preventDefault();
     fetchRecepies(currVal);
+    clicked(true);
   };
 
   return (

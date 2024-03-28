@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const context = createContext({
   fetchRecepies: () => {},
-  results: null
+  recepiesID: null,
 });
 
 export function ContextProvider({ children }) {
@@ -18,13 +18,14 @@ export function ContextProvider({ children }) {
     let responseJSON = await response.json();
     let results = await responseJSON.results;
     setRecepiesID(results);
-    // console.log(typeof results);
+
   };
 
   return (
     <context.Provider
       value={{
         fetchRecepies,
+        recepiesID,
       }}
     >
       {children}
