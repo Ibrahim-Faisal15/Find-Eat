@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 
 export const context = createContext({
   fetchRecepies: () => {},
+  displayIngredienets: () => {},
   recepiesID: null,
 });
 
@@ -18,13 +19,17 @@ export function ContextProvider({ children }) {
     let responseJSON = await response.json();
     let results = await responseJSON.results;
     setRecepiesNames(results);
+  };
 
+  const displayIngredienets = () => {
+    console.log("I am clicked from the store");
   };
 
   return (
     <context.Provider
       value={{
         fetchRecepies,
+        displayIngredienets,
         recepiesNames,
       }}
     >

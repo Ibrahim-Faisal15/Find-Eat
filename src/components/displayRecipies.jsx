@@ -4,8 +4,9 @@ import { context } from "../store/store";
 export default function Recipes() {
   const [loaded, setLoaded] = useState(false);
   const [recipes, setRecipes] = useState();
-  const { recepiesNames } = useContext(context);
-  let ID = useRef()
+  let recepieID = useRef();
+  const { recepiesNames, displayIngredienets } = useContext(context);
+  // let ID = useRef();
 
   useEffect(() => {
     if (recepiesNames !== null) {
@@ -15,12 +16,13 @@ export default function Recipes() {
     }
   }, [recepiesNames]);
 
-  const handleFetchRecepies = () => {
-    console.log("i am clicked");
+  const handleFetchRecepies = (id) => {
+    console.log(id);
+    // displayIngredienets();
   };
 
   return (
-    <div className="flex flex-wrap justify-start items-start mt-5 ml-[3rem] ">
+    <div className="flex flex-wrap justify-start `items-start mt-5 ml-[3rem] ">
       {loaded === false ? (
         <div
           style={{
@@ -38,8 +40,9 @@ export default function Recipes() {
           <>
             {recipes.map((recipe) => (
               <div
-                onClick={handleFetchRecepies}
+                onClick={() => handleFetchRecepies(recipe.id)}
                 class="card"
+                recepieID={recipe.id}
                 style={{
                   border: "2px solid",
                   width: "15rem",
