@@ -1,18 +1,23 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { context } from "../store/store";
 
 export default function Recipes() {
   const [loaded, setLoaded] = useState(false);
   const [recipes, setRecipes] = useState();
-  const { recepiesID } = useContext(context);
+  const { recepiesNames } = useContext(context);
+  let ID = useRef()
 
   useEffect(() => {
-    if (recepiesID !== null) {
-      setRecipes(recepiesID);
+    if (recepiesNames !== null) {
+      setRecipes(recepiesNames);
       setLoaded(true);
-      console.log(recepiesID);
+      console.log(recepiesNames);
     }
-  }, [recepiesID]);
+  }, [recepiesNames]);
+
+  const handleFetchRecepies = () => {
+    console.log("i am clicked");
+  };
 
   return (
     <div className="flex flex-wrap justify-start items-start mt-5 ml-[3rem] ">
@@ -33,19 +38,20 @@ export default function Recipes() {
           <>
             {recipes.map((recipe) => (
               <div
+                onClick={handleFetchRecepies}
                 class="card"
                 style={{
                   border: "2px solid",
                   width: "15rem",
                   marginBottom: "2rem",
-                  marginLeft: "1rem",
+                  marginLeft: "0.7rem",
                   cursor: "pointer",
                 }}
                 key={recipe.id}
               >
-                <img src={recipe.image} class="card-img-top" alt="..." />
+                <img src={recipe.image} class="card-img-top  " alt="..." />
                 <div class="card-body">
-                  <p class="card-text">{recipe.title}</p>
+                  <p class="card-text font-bold h-11">{recipe.title}</p>
                 </div>
               </div>
             ))}

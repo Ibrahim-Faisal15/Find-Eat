@@ -6,7 +6,7 @@ export const context = createContext({
 });
 
 export function ContextProvider({ children }) {
-  const [recepiesID, setRecepiesID] = useState(null);
+  const [recepiesNames, setRecepiesNames] = useState(null);
   const fetchRecepies = async (food) => {
     const Key = "a1635a107033410492fc8ab6f364630c";
     const Id = "22ecdd23";
@@ -17,7 +17,7 @@ export function ContextProvider({ children }) {
 
     let responseJSON = await response.json();
     let results = await responseJSON.results;
-    setRecepiesID(results);
+    setRecepiesNames(results);
 
   };
 
@@ -25,7 +25,7 @@ export function ContextProvider({ children }) {
     <context.Provider
       value={{
         fetchRecepies,
-        recepiesID,
+        recepiesNames,
       }}
     >
       {children}
