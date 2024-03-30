@@ -10,7 +10,6 @@ export function ContextProvider({ children }) {
   const [recepiesNames, setRecepiesNames] = useState(null);
   const fetchRecepies = async (food) => {
     const Key = "a1635a107033410492fc8ab6f364630c";
-    const Id = "22ecdd23";
 
     let response = await fetch(
       `https://api.spoonacular.com/recipes/complexSearch?query=${food}&apiKey=${Key}`
@@ -21,8 +20,13 @@ export function ContextProvider({ children }) {
     setRecepiesNames(results);
   };
 
-  const displayIngredienets = () => {
-    console.log("I am clicked from the store");
+  const displayIngredienets = async (id) => {
+    console.log("Id of the product is: " + id);
+    let recipe_response = await fetch(
+      `https://api.spoonacular.com/recipes/${id}/information?apiKey=a1635a107033410492fc8ab6f364630c`
+    );
+    let recipe_responseJSON = await recipe_response.json();
+    console.log(recipe_responseJSON);
   };
 
   return (

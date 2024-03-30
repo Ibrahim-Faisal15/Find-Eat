@@ -17,8 +17,7 @@ export default function Recipes() {
   }, [recepiesNames]);
 
   const handleFetchRecepies = (id) => {
-    console.log(id);
-    // displayIngredienets();
+    displayIngredienets(id);
   };
 
   return (
