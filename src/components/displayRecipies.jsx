@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { context } from "../store/store";
 
-export default function Recipes() {
+export default function Recipes({ active }) {
   const [loaded, setLoaded] = useState(false);
   const [recipes, setRecipes] = useState();
   let recepieID = useRef();
@@ -18,6 +18,7 @@ export default function Recipes() {
 
   const handleFetchRecepies = (id) => {
     displayIngredienets(id);
+    active("displayRecipies")
   };
 
   return (
