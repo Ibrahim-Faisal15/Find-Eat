@@ -19,7 +19,20 @@ export default function DisplayRecipies() {
       {loaded === false ? (
         <h1>Loading...</h1>
       ) : (
-        <center>{recipes.title}</center>
+        <div>
+          <div className="flex justify-center mt-4">
+            <h3 className="capitalize font-bold">{recipes.title}</h3>
+            <h3 className="ml-2 font-bold">{`(${recepie.readyInMinutes} Min)`}</h3>
+          </div>
+          <div className="card float-right" style={{ width: "18rem" }}>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">An item</li>
+              <li class="list-group-item">A second item</li>
+              <li class="list-group-item">A third item</li>
+            </ul>
+            <div class="card-footer">Card footer</div>
+          </div>
+        </div>
       )}
     </>
   );
