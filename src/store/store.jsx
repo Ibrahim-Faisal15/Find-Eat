@@ -8,6 +8,7 @@ export const context = createContext({
 
 export function ContextProvider({ children }) {
   const [recepiesNames, setRecepiesNames] = useState(null);
+  const [recepie, setRecipe] = useState();
   const fetchRecepies = async (food) => {
     const Key = "a1635a107033410492fc8ab6f364630c";
 
@@ -27,6 +28,8 @@ export function ContextProvider({ children }) {
     );
     let recipe_responseJSON = await recipe_response.json();
     console.log(recipe_responseJSON);
+    let results = await recipe_responseJSON;
+    setRecipe(results);
   };
 
   return (
@@ -35,6 +38,7 @@ export function ContextProvider({ children }) {
         fetchRecepies,
         displayIngredienets,
         recepiesNames,
+        recepie,
       }}
     >
       {children}
