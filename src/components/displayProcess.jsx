@@ -24,13 +24,25 @@ export default function DisplayRecipies() {
             <h3 className="capitalize font-bold">{recipes.title}</h3>
             <h3 className="ml-2 font-bold">{`(${recepie.readyInMinutes} Min)`}</h3>
           </div>
-          <div className="card float-right" style={{ width: "18rem" }}>
+          <div
+            className="card float-right mt-[5rem]"
+            style={{ width: "18rem" }}
+          >
             <ul class="list-group list-group-flush">
               <li class="list-group-item">An item</li>
               <li class="list-group-item">A second item</li>
               <li class="list-group-item">A third item</li>
             </ul>
             <div class="card-footer">Card footer</div>
+          </div>
+          <div>
+            <p>{recepie.summary}</p>
+          </div>
+          <div>
+            <img src={recepie.image} alt="" />
+          </div>
+          <div>
+            <p>{recepie.instructions}</p>
           </div>
         </div>
       )}
