@@ -4,7 +4,7 @@ import { context } from "../store/store";
 export default function Recipes({ active }) {
   const [loaded, setLoaded] = useState(false);
   const [recipes, setRecipes] = useState();
-  let recepieID = useRef();
+  let recepieid = useRef();
   const { recepiesNames, displayIngredienets } = useContext(context);
   // let ID = useRef();
 
@@ -18,7 +18,7 @@ export default function Recipes({ active }) {
 
   const handleFetchRecepies = (id) => {
     displayIngredienets(id);
-    active("displayRecipies")
+    active("displayRecipies");
   };
 
   return (
@@ -42,7 +42,7 @@ export default function Recipes({ active }) {
               <div
                 onClick={() => handleFetchRecepies(recipe.id)}
                 class="card"
-                recepieID={recipe.id}
+                recepieid={recipe.id}
                 style={{
                   border: "2px solid",
                   width: "15rem",
