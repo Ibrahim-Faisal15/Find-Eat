@@ -25,18 +25,8 @@ export default function DisplayRecipies() {
             <h3 className="capitalize font-bold underline">{recipes.title}</h3>
             <h3 className="ml-2 font-bold">{`(${recepie.readyInMinutes} Min)`}</h3>
           </div>
-          <div className="mt-4">
-            <div className="text-center">
-              <h1>Summary</h1>
-            </div>
-            <div className="text-xl   ">
-              <p className="no-underline">{HtmlParser(recepie.summary)}</p>
-            </div>
-          </div>
-          <div
-            className="card float-right mt-[-5rem]"
-            style={{ width: "18rem" }}
-          >
+
+          <div className="card float-right mt-10" style={{ width: "18rem" }}>
             <ul class="list-group list-group-flush">
               <li class="list-group-item font-bold text-center ">
                 Information
@@ -71,6 +61,14 @@ export default function DisplayRecipies() {
                 {`${recepie.veryHealthy}`}
               </li>
             </ul>
+          </div>
+          <div className="mt-4 text-center ">
+            <div className="text-center">
+              <h1>Summary</h1>
+            </div>
+            <div className="text-xl ">
+              <p className="no-underline">{HtmlParser(recepie.summary)}</p>
+            </div>
           </div>
 
           <div className="flex justify-center ">
