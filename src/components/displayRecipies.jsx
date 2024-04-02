@@ -33,7 +33,9 @@ export default function Recipes({ active }) {
             height: "100vh",
           }}
         >
-          <img src="../src/assets/Spinner.svg" className=""></img>
+          <h1>
+            <h1>Loading...</h1>
+          </h1>
         </div>
       ) : (
         loaded && (
