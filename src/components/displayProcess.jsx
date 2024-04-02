@@ -18,7 +18,7 @@ export default function DisplayRecipies() {
   return (
     <>
       {loaded === false ? (
-        <div className="flex justify-center items-center h-[100vh]">
+        <div className="flex justift-center h-[100vh]">
           <h1>Loading...</h1>
         </div>
       ) : (
