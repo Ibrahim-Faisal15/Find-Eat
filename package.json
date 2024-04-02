@@ -2,6 +2,7 @@
   "name": "find-eat",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://ibrahim-faisal15.github.io/Find-Eat/",
   "type": "module",
   "scripts": {
     "dev": "vite",
